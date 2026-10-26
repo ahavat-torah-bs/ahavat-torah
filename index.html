@@ -1,0 +1,486 @@
+<title>אהבת תורה לילדים</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gveret+Levin&family=Heebo:wght@400;500;700;800&family=Playpen+Sans+Hebrew:wght@500;700&display=swap">
+<style>
+/* Layout: a hand-drawn notebook world. Wavy hill dividers between sections, wobbly ink borders on paper cards, taped photos, a sticker for the live campaign. Content lives in the SITE object at the bottom. */
+:root{
+  --bg:#fbfaf4;
+  --paper:#ffffff;
+  --wash:#e3f1f7;
+  --ink:#2a3342;
+  --muted:#5a6676;
+  --line:#c9d3dc;
+  --bordeaux:#9b4a60;
+  --btn:#9b4a60;
+  --on-btn:#ffffff;
+  --sun:#f1b73f;
+  --sun-soft:#fdf0cc;
+  --leaf:#86b98a;
+  --blush:#f4c6cc;
+  --boys:#4f8db8;
+  --girls:#b0507f;
+  --gan:#4d9468;
+  --tape:rgba(241,183,63,.55);
+  --noise:.07;
+  --display:'Gveret Levin','Playpen Sans Hebrew',cursive;
+  --hand:'Playpen Sans Hebrew','Heebo',sans-serif;
+  --body:'Heebo',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#18212c;--paper:#222e3b;--wash:#1f3042;--ink:#eef2f6;--muted:#a9b6c4;--line:#3a4a5b;
+    --bordeaux:#eba6b8;--btn:#b24f6c;--sun:#f4c062;--sun-soft:#3b3220;--leaf:#8fc795;--blush:#5a3a44;
+    --boys:#86bde6;--girls:#e8a0c4;--gan:#92d1a8;--tape:rgba(244,192,98,.5);--noise:.12;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#18212c;--paper:#222e3b;--wash:#1f3042;--ink:#eef2f6;--muted:#a9b6c4;--line:#3a4a5b;
+  --bordeaux:#eba6b8;--btn:#b24f6c;--sun:#f4c062;--sun-soft:#3b3220;--leaf:#8fc795;--blush:#5a3a44;
+  --boys:#86bde6;--girls:#e8a0c4;--gan:#92d1a8;--tape:rgba(244,192,98,.5);--noise:.12;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;direction:rtl;text-align:right;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;
+  background-color:var(--bg);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0'/></filter><rect width='220' height='220' filter='url(%23n)' opacity='.55'/></svg>");
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+.wrap{max-width:1060px;margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--bordeaux)}
+img{display:block;max-width:100%;height:auto}
+bdi.t{direction:ltr;unicode-bidi:isolate;white-space:nowrap;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:8px}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* wobbly ink border drawn on a pseudo layer so text stays crisp */
+.rough{position:relative;background:var(--paper);border-radius:22px 30px 24px 32px / 30px 22px 32px 24px}
+.rough::before{content:"";position:absolute;inset:0;border:2.5px solid var(--ink);border-radius:inherit;filter:url(#wob);pointer-events:none}
+.rough.dash::before{border-style:dashed;border-width:2px;border-color:var(--muted)}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:2.5px dashed var(--line);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.bar .wrap{display:flex;align-items:center;gap:16px;padding-block:8px}
+.brand{margin-inline-start:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand .chip{background:#fff;border-radius:12px;padding:2px 8px;display:flex}
+.brand img{height:40px;width:auto}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:6px 12px;border-radius:999px;text-decoration:none;color:var(--ink);font-family:var(--hand);font-weight:500;font-size:15px}
+.nav a:hover{background:var(--sun-soft)}
+.nav a.cta{background:var(--btn);color:var(--on-btn)}
+
+/* hero */
+.hero{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));position:relative;background:linear-gradient(180deg,var(--wash) 0%,transparent 100%);padding-block:60px 190px;overflow:hidden}
+.hero .scene{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{font-family:var(--hand);font-weight:700;color:var(--bordeaux);font-size:16px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.hero h1{font-size:clamp(40px,7.4vw,72px);margin-bottom:6px}
+.hero .sub{font-family:var(--hand);font-weight:700;font-size:clamp(19px,2.6vw,24px);color:var(--bordeaux);margin-bottom:16px}
+.hero p.lead{font-size:20px;max-width:30em}
+.hero p.mission{margin-top:12px;color:var(--muted);max-width:32em}
+.rabbi{display:inline-block;margin-top:16px;padding:8px 16px;font-family:var(--hand);font-size:16px}
+.where{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 0;padding:0;list-style:none}
+.where li{display:flex;gap:10px;align-items:center;padding:10px 16px;font-weight:600;font-size:16px}
+.where svg{width:26px;height:26px;flex:none}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:18px 24px 18px 26px / 24px 18px 26px 18px;background:var(--btn);color:var(--on-btn);font-family:var(--hand);font-weight:700;text-decoration:none;border:2.5px solid var(--ink);font-size:17px;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:rotate(-1.5deg) translateY(-2px)}
+.btn.ghost{background:var(--paper);color:var(--ink)}
+.polaroid{margin:0;padding:12px 12px 8px;transform:rotate(2deg);position:relative;box-shadow:0 10px 24px rgba(20,30,50,.18)}
+.polaroid img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:6px;cursor:zoom-in}
+.polaroid figcaption{font-family:var(--hand);font-size:15px;color:var(--muted);padding:8px 4px 2px;text-align:center}
+.decor{position:absolute;width:230px;height:auto;top:-96px;inset-inline-end:-60px;z-index:-1;pointer-events:none}
+.tape{position:absolute;top:-14px;inset-inline-start:50%;width:92px;height:28px;background:var(--tape);transform:translateX(50%) rotate(-4deg);border-radius:3px;z-index:2}
+
+section{padding-block:52px;position:relative}
+.sec-head{margin-bottom:28px;max-width:40em}
+.sec-head h2{font-size:clamp(34px,5vw,50px);display:inline-block;position:relative;padding-bottom:12px}
+.sec-head h2::after{content:"";position:absolute;inset-inline:0;bottom:0;height:10px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'><path d='M2 6 Q12 1 22 6 T42 6 T62 6 T82 6 T102 6 T118 5' fill='none' stroke='%23f1b73f' stroke-width='3.5' stroke-linecap='round'/></svg>") center/100% 100% no-repeat}
+.sec-head p{color:var(--muted);margin-top:8px}
+
+.divider{display:block;width:calc(100% + 2 * max(16px,env(safe-area-inset-left,0px)));margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));height:54px}
+
+/* campaign */
+.campaign{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center;padding:30px}
+.campaign .cover{position:relative;transform:rotate(-2deg);max-width:320px;margin-inline:auto}
+.campaign .cover img{width:100%;border-radius:8px;border:2.5px solid var(--ink);cursor:zoom-in;box-shadow:0 8px 20px rgba(20,30,50,.18)}
+.sticker{position:absolute;bottom:-26px;inset-inline-end:-34px;width:104px;height:104px;display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:22px;line-height:1.05;color:#2b1d00;transform:rotate(10deg);z-index:2}
+.sticker svg{position:absolute;inset:0;width:100%;height:100%}
+.sticker span{position:relative}
+.dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
+.dl b{font-family:var(--hand)}
+.dl .btn{padding:8px 18px;font-size:15px}
+.campaign h3{font-size:clamp(30px,4.4vw,42px);margin-bottom:6px}
+.campaign .verse{color:var(--muted);margin-bottom:16px;font-family:var(--hand);font-size:15px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.steps b{display:block;font-family:var(--hand)}
+.steps .dot{width:38px;height:38px;display:grid;place-items:center;font-family:var(--display);font-size:22px;background:var(--sun-soft);border:2.5px solid var(--ink);border-radius:50% 46% 52% 48%}
+
+/* schedule */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.tab{font-family:var(--hand);font-size:16px;font-weight:700;padding:9px 22px;border-radius:16px 22px 16px 24px / 22px 16px 24px 16px;border:2.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--sun);color:#2b1d00}
+.rows{display:grid;gap:14px}
+.row{display:grid;grid-template-columns:150px 1.2fr 1fr 1.4fr;gap:8px 18px;align-items:center;padding:16px 22px}
+.row .grade{font-family:var(--display);font-size:28px;color:var(--tone,var(--boys));line-height:1.1}
+.row .who b{display:block}
+.row small{color:var(--muted);font-size:14px}
+.row::after{content:"";position:absolute;top:14px;bottom:14px;inset-inline-start:-4px;width:8px;border-radius:6px;background:var(--tone,var(--boys))}
+.meta{margin-top:16px;color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.link{background:none;border:0;padding:0;font:inherit;color:var(--bordeaux);text-decoration:underline wavy;text-underline-offset:4px;cursor:pointer}
+
+/* archive */
+.events{display:grid;gap:30px}
+.event{display:grid;grid-template-columns:230px 1fr;gap:24px;padding:22px}
+.event:nth-child(odd){transform:rotate(-.5deg)}
+.event:nth-child(even){transform:rotate(.5deg)}
+.event .cwrap{position:relative}
+.event .cover{border-radius:8px;cursor:zoom-in;width:100%;aspect-ratio:1/1.1;object-fit:cover;background:var(--wash);border:2px solid var(--ink)}
+.event .when{font-family:var(--hand);font-weight:700;color:var(--bordeaux);font-size:15px}
+.event h3{font-size:32px;margin:2px 0 8px}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.thumbs img{height:84px;width:auto;border-radius:6px;cursor:zoom-in;object-fit:cover;border:2px solid var(--ink)}
+
+/* participation */
+.pay{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:stretch}
+.pay .text{padding:28px}
+.pay .text p+p{margin-top:12px}
+.price{padding:28px;display:flex;flex-direction:column;justify-content:center;gap:10px;text-align:center;background:var(--sun-soft)}
+.price .num{font-family:var(--display);font-size:84px;line-height:1}
+.price .num small{font-size:34px}
+.price .sub{font-family:var(--hand);font-weight:700}
+
+/* join */
+.join{position:relative;background:var(--ink);color:var(--bg);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));padding-block:30px 52px}
+.join h2{font-size:clamp(34px,5vw,50px);margin-bottom:22px}
+.join ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.join li{background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.5);border-radius:20px 26px 22px 28px / 26px 20px 28px 22px;padding:20px}
+.join li b{display:block;font-family:var(--display);font-weight:400;font-size:26px;margin-bottom:4px;color:var(--sun)}
+.join .contact{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.join .phone{font-size:24px;font-weight:800;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.join .btn{background:var(--sun);border-color:#2b1d00;color:#2b1d00}
+
+footer{padding-block:34px;color:var(--muted);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+footer .logos{display:flex;gap:14px;align-items:center}
+footer .logos span{background:#fff;border-radius:12px;padding:4px 10px;display:flex;border:2px solid var(--line)}
+footer img{height:44px;width:auto}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(8,14,22,.88);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-height:88vh;max-width:min(94vw,1000px);border-radius:10px;width:auto}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));inset-inline-start:14px;background:#fff;color:#111;border:0;border-radius:999px;font-size:16px;font-weight:700;padding:8px 18px;cursor:pointer;font-family:var(--hand)}
+
+@media (max-width:820px){
+  .hero .wrap,.campaign,.pay,.event{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr 1fr}
+  .row .grade{grid-column:1/-1}
+  .join ol{grid-template-columns:1fr}
+  .event .cover{aspect-ratio:16/10}
+  .event:nth-child(odd),.event:nth-child(even){transform:none}
+  .nav a:not(.cta){display:none}
+  .sticker{inset-inline-end:-6px}
+  .decor{width:170px;top:-70px;inset-inline-end:-30px}
+  .hero{padding-block:36px 130px}
+  .campaign{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="wob" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/>
+  </filter>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="ניווט ראשי">
+      <a href="#schedule">זמני לימוד</a>
+      <a href="#campaign">מבצע פעיל</a>
+      <a href="#archive">מה עשינו</a>
+      <a href="#support">השתתפות חודשית</a>
+      <a class="cta" href="#join">איך מצטרפים</a>
+    </nav>
+    <a class="brand" href="#top" aria-label="תלמוד תורה אהבת תורה בשיתוף בית מוריה, לראש הדף">
+      <span class="chip"><img src="./logo-ahavat.jpg" alt="לוגו תלמוד תורה אהבת תורה"></span>
+      <span class="chip"><img src="./logo-moriah.jpg" alt="לוגו בית מוריה"></span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <svg class="scene" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <g filter="url(#wob)" stroke="#2a3342" stroke-width="3">
+        <!-- hills -->
+        <path d="M-10 560C140 470 300 470 440 540S720 590 860 520 1100 440 1210 520V660H-10Z" fill="#a9d3a3" fill-opacity=".9"/>
+        <path d="M-10 610C180 540 360 560 520 600S880 620 1210 570V660H-10Z" fill="#f1d9a0" fill-opacity=".9"/>
+        <!-- trees -->
+        <g transform="translate(1040 470)"><path d="M0 70V10" stroke-width="6"/><path d="M-34 14C-48-18-10-44 8-34 36-44 52-6 30 14 14 30-18 30-34 14Z" fill="#86b98a"/></g>
+        <g transform="translate(120 505) scale(.8)"><path d="M0 70V10" stroke-width="6"/><path d="M-34 14C-48-18-10-44 8-34 36-44 52-6 30 14 14 30-18 30-34 14Z" fill="#86b98a"/></g>
+      </g>
+    </svg>
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          בית הכנסת העל-עדתי הכיפה, באר שבע
+        </div>
+        <h1>תלמוד תורה לילדים ״אהבת תורה״</h1>
+        <div class="sub">מסגרת לימודית לשעות אחר הצהריים</div>
+        <p class="lead">ילדי באר שבע מוזמנים להצטרף ללימוד משנה משמח, עם הרבה אהבת תורה. רק 35 דקות, אבל עם הרבה משמעות.</p>
+        <p class="mission">העצמת אהבת התורה וחיזוק חשיבות קביעות לימוד התורה.</p>
+        <p class="rabbi rough dash">בהנחיית <b>הרב אהרון דרשביץ</b>, רב קהילת בית כנסת הכיפה</p>
+        <ul class="where">
+          <li class="rough dash">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bordeaux)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.2A7 7 0 0 1 19 9.8C19 14.8 12 21 12 21Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            שכונה ה׳, בית הכנסת הכיפה
+          </li>
+          <li class="rough dash">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--bordeaux)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+            ימי ראשון עד חמישי, אחר הצהריים
+          </li>
+        </ul>
+        <div class="btns">
+          <a class="btn" href="#schedule">מתי לומדים</a>
+          <a class="btn ghost" href="#join">איך מצטרפים</a>
+        </div>
+      </div>
+      <figure class="polaroid rough">
+        <svg class="decor" viewBox="0 0 300 200" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><g filter="url(#wob)" stroke="#2a3342" stroke-width="3">
+          <g transform="translate(70 80)"><path d="M-34 2C-35-20-18-36 2-35 23-35 36-18 34 2 33 22 18 35-2 34-22 33-35 22-34 2Z" fill="#f1b73f"/><path d="M-13 5Q0 18 13 5" stroke-width="3.2"/><circle cx="-11" cy="-7" r="2.4" fill="#2a3342"/><circle cx="11" cy="-7" r="2.4" fill="#2a3342"/><path d="M0-52V-68M38-38L50-50M52 0H72M38 38L50 50M0 52V70M-38 38L-50 50M-52 0H-72M-38-38L-50-50" stroke="#f1b73f" stroke-width="5"/></g>
+          <path d="M158 60c-20 2-30-20-12-32 6-22 36-24 48-7 17-13 42-2 42 19 20 2 22 22 3 26Z" fill="#fff" fill-opacity=".92"/>
+          <path d="M120 150l6 13 14 2-10 10 3 14-13-7-13 7 3-14-10-10 14-2Z" fill="#f1b73f" stroke-width="2.5"/>
+        </g></svg>
+        <span class="tape" aria-hidden="true"></span>
+        <img src="./p1.jpg" alt="מסיבת חנוכה וסיום מבצע באולם בית הכנסת" data-zoom>
+        <figcaption>מסיבת חנוכה וסיום מבצע, כ״ה בכסלו תשפ״ו</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section id="schedule"><div class="wrap">
+    <div class="sec-head">
+      <h2>זמני לימוד</h2>
+      <p>מערכת חשוון. כל שיעור נמשך 35 דקות. לא בטוחים באיזו קבוצה? כתבו לנו ונכוון.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="בחירת קבוצה">
+      <button class="tab" role="tab" id="tab-boys" aria-selected="true" data-k="boys">בנים</button>
+      <button class="tab" role="tab" id="tab-girls" aria-selected="false" data-k="girls">בנות</button>
+      <button class="tab" role="tab" id="tab-gan" aria-selected="false" data-k="gan">גן חובה</button>
+    </div>
+    <div class="rows" id="rows" role="tabpanel" aria-live="polite"></div>
+    <div class="meta">
+      <span id="schedNote"></span>
+      <button class="link" type="button" data-zoomsrc="./schedule.jpg" data-zoomalt="מערכת השעות של חשוון">לצפייה במערכת המעוצבת</button>
+    </div>
+  </div></section>
+
+  <section id="campaign"><div class="wrap">
+    <div class="sec-head">
+      <h2>המבצע הנוכחי</h2>
+    </div>
+    <div class="campaign rough">
+      <div class="cover">
+        <div class="sticker" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="#f1b73f" stroke="#2a3342" stroke-width="2.5" stroke-linejoin="round" filter="url(#wob)"><path d="M50 4l10 14 17-5 2 17 17 4-8 15 12 13-15 9 1 17-17-2-7 16-12-12-14 10-5-17-17-2 3-17-13-11 14-10-3-17 17 1 6-16Z"/></svg>
+          <span>פעיל<br>עכשיו</span>
+        </div>
+        <img src="./lashon-cover.jpg" alt="שער החוברת של מבצע חנוכה, שמירת הלשון" data-zoom>
+      </div>
+      <div>
+        <h3>מבצע חנוכה תשפ״ז: שמירת הלשון</h3>
+        <p class="verse">״מי האיש החפץ חיים… נצר לשונך מרע״ (תהלים לד)</p>
+        <ol class="steps">
+          <li><span class="dot">1</span><div><b>לימוד יומי</b>לומדים כל יום את הקטע היומי בחוברת האישית.</div></li>
+          <li><span class="dot">2</span><div><b>צוברים מדבקות</b>ההורים חותמים על הלימוד היומי, והילד מקבל מדבקה להדבקה בחוברת.</div></li>
+          <li><span class="dot">3</span><div><b>כרטיסי הגרלה</b>כל יום לימוד ומדבקה מזכים בכרטיס להגרלת הפרסים.</div></li>
+          <li><span class="dot">4</span><div><b>אירוע שיא בחנוכה</b>מעמד סיום חגיגי והגרלת פרסים בין המשתתפים.</div></li>
+        </ol>
+        <div class="dl">
+          <b>להורדת החוברות:</b>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1d3aJAPO52I8cHYq-0_Awt7T3bHn5rP6k/view" target="_blank" rel="noopener">כיתות א׳–ב׳</a>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1537Cylnfj9juW37BJQ0Uvzft9IgDFBhf/view" target="_blank" rel="noopener">כיתות ג׳–ד׳</a>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1_fXW4LrPSvkBcMt8UeemxCWK0PImrdYv/view" target="_blank" rel="noopener">כיתות ה׳–ו׳</a>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="archive"><div class="wrap">
+    <div class="sec-head">
+      <h2>מה עשינו</h2>
+      <p>אירועים, מבצעים וסיומי מסכתות. לחצו על תמונה כדי להגדיל.</p>
+    </div>
+    <div class="events" id="events"></div>
+  </div></section>
+
+  <section id="support"><div class="wrap">
+    <div class="sec-head">
+      <h2>השתתפות חודשית</h2>
+    </div>
+    <div class="pay">
+      <div class="text rough">
+        <p>אחרי למעלה משנה וחצי של פעילות, התלמוד תורה גדל באיכות ובכמות, וגדלות איתו גם העלויות: שכר המלמדים והמלמדות, צ׳ופרים לילדים, פעילות חודשית, סיומי מסכתות ומבצעים.</p>
+        <p>כדי לשמור על מסגרת קבועה ואיכותית לאורך זמן, אנחנו מבקשים מההורים השתתפות חודשית סמלית, בהוראת קבע.</p>
+        <p>התלמוד תורה פועל בשיתוף בית מוריה, והחתימה על ההוראה נעשית דרך הטופס שלהם.</p>
+      </div>
+      <div class="price rough">
+        <div class="num">30<small> ₪</small></div>
+        <div class="sub">לחודש, בהוראת קבע</div>
+        <a class="btn" href="https://donation.asakimerp.com/Campaing/?CampaingID=52092" target="_blank" rel="noopener">לחתימה על הוראת קבע</a>
+        <small>הטופס נפתח באתר בית מוריה</small>
+      </div>
+    </div>
+  </div></section>
+</main>
+
+<div class="join" id="join">
+  <svg class="divider" style="position:absolute;top:-53px;inset-inline:0;margin:0;width:100%" viewBox="0 0 1200 54" preserveAspectRatio="none" aria-hidden="true"><path d="M0 54V30C120 6 240 6 360 26S600 50 780 24 1080 2 1200 26V54Z" style="fill:var(--ink)"/></svg>
+  <div class="wrap">
+    <h2>איך מצטרפים</h2>
+    <ol>
+      <li><b>מגיעים</b>אין הרשמה מראש. שולחים את הילד או הילדה לשיעור בזמן הקבוצה שלהם.</li>
+      <li><b>בוחרים קבוצה</b>לפי כיתה, בלוח זמני הלימוד. אפשר גם לשאול אותנו.</li>
+      <li><b>חותמים על הוראת קבע</b>30 ₪ לחודש, דרך הטופס של בית מוריה.</li>
+    </ol>
+    <div class="contact">
+      <span>לפרטים: מיכאל דביר</span>
+      <span class="phone">052-6643456</span>
+      <a class="btn" href="https://wa.me/972526643456" target="_blank" rel="noopener">כתבו לנו בווצאפ</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>תלמוד תורה לילדים ״אהבת תורה״, בית כנסת הכיפה בשיתוף בית מוריה.<br>בהנחיית הרב אהרון דרשביץ, רב קהילת בית כנסת הכיפה.<br>המסגרת פתוחה לכל ילדי באר שבע.</div>
+    <div class="logos">
+      <span><img src="./logo-ahavat.jpg" alt="אהבת תורה"></span>
+      <span><img src="./logo-moriah.jpg" alt="בית מוריה"></span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="תמונה מוגדלת">
+  <button type="button" id="lbClose">סגירה</button>
+  <img id="lbImg" alt="">
+</div>
+
+<script>
+/* ===== תוכן האתר: כאן מעדכנים ===== */
+const SITE = {
+  scheduleNote: "מערכת חשוון. שעות ומקומות עשויים להשתנות, ובמקרה כזה נעדכן כאן.",
+  schedule: {
+    boys: [
+      {grade:"כיתות א׳–ב׳", who:"הרב יחזקאל אהרוני", place:"מקלט", times:[["ראשון ורביעי","17:00–17:35"],["שני","17:35–18:10"]]},
+      {grade:"כיתות ג׳–ד׳", who:"הרב נהוראי גול", place:"מקלט", times:[["ראשון ורביעי","17:35–18:10"],["שני","17:00–17:35"]]},
+      {grade:"כיתות ה׳–ו׳", who:"הרב יהודה רוזנברג", place:"ספרייה", times:[["ראשון ורביעי","17:00–17:35"],["שני","17:40–18:15"]]},
+      {grade:"כיתות ו׳–ט׳", who:"הרב יעקב מוסאי", place:"ספרייה", times:[["שלישי","19:00–19:35"]]}
+    ],
+    girls: [
+      {grade:"כיתות א׳–ב׳", who:"רננה וסרטייל", place:"בית המדרש", times:[["שני, שלישי, חמישי","17:00–17:35"]]},
+      {grade:"כיתות ג׳–ד׳", who:"הודיה גוטמן", sub:"ביום שני: אליענה מאיר", place:"ספרייה", times:[["שני, שלישי, חמישי","17:00–17:35"]]},
+      {grade:"כיתות ה׳–ו׳", who:"אורית אהרוני", sub:"ביום שלישי: אליענה מאיר", place:"ספרייה", times:[["ראשון, שלישי, רביעי","18:15–18:50"]]},
+      {grade:"כיתות ז׳–ח׳", who:"רעיה גולדשטיין", place:"ספרייה / בית המדרש", times:[["רביעי","19:00–19:35"]]}
+    ],
+    gan: [
+      {grade:"גן חובה", who:"אליענה מאיר", sub:"קבוצה משותפת לבנים ולבנות", place:"בית המדרש", times:[["שלישי, חמישי","17:35–18:10"]]}
+    ]
+  },
+  events: [
+    {
+      when:"ה׳ בתשרי תשפ״ז, יום רביעי",
+      title:"מעמד התעוררות לקראת יום הכיפורים",
+      text:"אבות ובנים בעזרת הגברים, אמהות ובנות בעזרת הנשים. הרב שמעון כהן והרב אהרון דרשביץ בדברי ברכה וחיזוק, שירת סליחות ופיוטים בליווי כלי נגינה, לימוד משותף ותהילים, ופרס אישי ופינוק מתוק לכל ילד.",
+      cover:"./yomkippur.jpg", coverAlt:"מודעת מעמד ההתעוררות לקראת יום הכיפורים",
+      thumbs:[["./yk1.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk2.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk3.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk4.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk5.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk6.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk7.jpg","מעמד ההתעוררות לקראת יום הכיפורים"]]
+    },
+    {
+      when:"י׳ באלול תשפ״ו",
+      title:"חוזרים ללמוד באהבה",
+      text:"פתיחת שנת הלימודים. ילדי באר שבע הוזמנו להצטרף ללימוד משנה, עם לימוד חווייתי, עידוד להתמדה וסביבה חינוכית מעצימה.",
+      cover:"./lashon2.jpg", coverAlt:"מודעת פתיחת שנת הלימודים", thumbs:[]
+    },
+    {
+      when:"מכ׳ בתמוז עד ז׳ באב, תשפ״ו",
+      title:"מסגרת לימוד בחופש הגדול",
+      text:"תפילה במניין בשעה 8:30, שוקו ולחמנייה, ולימוד תורה חווייתי עם מדריכים, באווירה נעימה ומשמחת. שתי קבוצות: א׳–ב׳ וג׳–ו׳. הסיום בשעה 10:30.",
+      cover:"./lashon1.jpg", coverAlt:"מודעת מסגרת הלימוד של החופש הגדול", thumbs:[]
+    },
+    {
+      when:"כ״ט בשבט תשפ״ו",
+      title:"סיום מסכת ברכות",
+      text:"ערב חגיגי בנוכחות הורים ורבני הקהילה. דברי תורה מתוקים, פעילות אינטראקטיבית וחווייתית לילדים, חלוקת חולצות התלמוד תורה, תעודות הערכה והגרלה נושאת פרסים. עשרות ילדים סיימו את המסכת, ורבים נוספים התקדמו בחלקים משמעותיים ממנה.",
+      cover:"./berachot.jpg", coverAlt:"הזמנה לסיום מסכת ברכות",
+      thumbs:[["./p3.jpg","בנות בחולצות התלמוד תורה בפעילות חווייתית"],["./p4.jpg","בנות בפעילות לפני האירוע"],["./p5.jpg","בנים יושבים יחד בחצר"],["./p6.jpg","בנים במעגל בחצר"],["./p7.jpg","ילדים באולם בית הכנסת"],["./b16.jpg","ערב סיום מסכת ברכות"],["./b17.jpg","ערב סיום מסכת ברכות"],["./b18.jpg","בנות בערב סיום מסכת ברכות"],["./b19.jpg","בנות בערב סיום מסכת ברכות"],["./b24.jpg","קולאז׳ מערב הסיום"],["./teudat.jpg","תעודת הערכה לסיום מסכת ברכות"]]
+    },
+    {
+      when:"כ״ה בכסלו תשפ״ו",
+      title:"מסיבת חנוכה וסיום מבצע",
+      text:"ילדים והורים התכנסו יחד באולם בית הכנסת למסיבת חנוכה, לסיום המבצע.",
+      cover:"./p2.jpg", coverAlt:"מסיבת חנוכה באולם בית הכנסת", thumbs:[["./p1.jpg","מסיבת חנוכה באולם"],["./d13.jpg","מסיבת חנוכה באולם"],["./d14.jpg","מסיבת חנוכה באולם"]]
+    }
+    ,{
+      when:"לאורך השנה",
+      title:"רגעים מהשיעורים",
+      text:"מהלימוד השוטף בספרייה ובבית המדרש.",
+      cover:"./g22.jpg", coverAlt:"בנים לומדים בספרייה", thumbs:[["./g23.jpg","קולאז׳ מהשיעורים"]]
+    }
+  ]
+};
+
+/* ===== הצגה ===== */
+const TONES={boys:'var(--boys)',girls:'var(--girls)',gan:'var(--gan)'};
+const rowsEl=document.getElementById('rows');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function showGroup(k){
+  rowsEl.innerHTML=SITE.schedule[k].map(r=>`
+    <div class="row rough dash" style="--tone:${TONES[k]}">
+      <div class="grade">${esc(r.grade)}</div>
+      <div class="who"><b>${esc(r.who)}</b>${r.sub?`<small>${esc(r.sub)}</small>`:''}</div>
+      <div class="place">${esc(r.place)}</div>
+      <div class="when">${r.times.map(t=>`<div>${esc(t[0])}: <bdi class="t">${esc(t[1])}</bdi></div>`).join('')}</div>
+    </div>`).join('');
+  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k?'true':'false'));
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showGroup(b.dataset.k)));
+document.getElementById('schedNote').textContent=SITE.scheduleNote;
+showGroup('boys');
+
+document.getElementById('events').innerHTML=SITE.events.map(e=>`
+  <article class="event rough">
+    <div class="cwrap"><span class="tape" aria-hidden="true"></span><img class="cover" src="${esc(e.cover)}" alt="${esc(e.coverAlt)}" loading="lazy" data-zoom></div>
+    <div>
+      <div class="when">${esc(e.when)}</div>
+      <h3>${esc(e.title)}</h3>
+      <p>${esc(e.text)}</p>
+      ${e.thumbs.length?`<div class="thumbs">${e.thumbs.map(t=>`<img src="${esc(t[0])}" alt="${esc(t[1])}" loading="lazy" data-zoom>`).join('')}</div>`:''}
+    </div>
+  </article>`).join('');
+
+/* lightbox */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+function openLb(src,alt){lbImg.src=src;lbImg.alt=alt||'';lb.classList.add('open')}
+function closeLb(){lb.classList.remove('open');lbImg.removeAttribute('src')}
+document.addEventListener('click',ev=>{
+  const z=ev.target.closest('[data-zoom]');
+  if(z){openLb(z.getAttribute('src'),z.getAttribute('alt'));return}
+  const b=ev.target.closest('[data-zoomsrc]');
+  if(b){openLb(b.dataset.zoomsrc,b.dataset.zoomalt)}
+});
+lb.addEventListener('click',ev=>{if(ev.target===lb||ev.target.id==='lbClose')closeLb()});
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeLb()});
+</script>
