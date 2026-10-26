@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>תלמוד תורה אהבת תורה, באר שבע</title>
 <meta name="description" content="תלמוד תורה לילדים אהבת תורה, בית הכנסת הכיפה, באר שבע, בשיתוף בית מוריה. זמני לימוד, מבצעים והצטרפות.">
 <meta property="og:title" content="תלמוד תורה אהבת תורה, באר שבע">
@@ -194,16 +199,19 @@ footer img{height:44px;width:auto}
   .row{grid-template-columns:1fr 1fr}
   .row .grade{grid-column:1/-1}
   .join ol{grid-template-columns:1fr}
-  .event .cover{aspect-ratio:16/10}
+  .event .cover{aspect-ratio:auto;max-height:460px;object-fit:contain;background:transparent}
   .event:nth-child(odd),.event:nth-child(even){transform:none}
   .nav a:not(.cta){display:none}
   .sticker{inset-inline-end:-6px}
   .decor{width:170px;top:-70px;inset-inline-end:-30px}
   .hero{padding-block:36px 130px}
+  .polaroid{margin-top:64px}
   .campaign{padding:22px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
+</head>
+<body>
 
 <svg class="defs" aria-hidden="true" focusable="false">
   <filter id="wob" x="-5%" y="-5%" width="110%" height="110%">
@@ -470,12 +478,12 @@ showGroup('boys');
 
 document.getElementById('events').innerHTML=SITE.events.map(e=>`
   <article class="event rough">
-    <div class="cwrap"><span class="tape" aria-hidden="true"></span><img class="cover" src="${esc(e.cover)}" alt="${esc(e.coverAlt)}" loading="lazy" data-zoom></div>
+    <div class="cwrap"><span class="tape" aria-hidden="true"></span><img class="cover" src="${esc(e.cover)}" alt="${esc(e.coverAlt)}" data-zoom></div>
     <div>
       <div class="when">${esc(e.when)}</div>
       <h3>${esc(e.title)}</h3>
       <p>${esc(e.text)}</p>
-      ${e.thumbs.length?`<div class="thumbs">${e.thumbs.map(t=>`<img src="${esc(t[0])}" alt="${esc(t[1])}" loading="lazy" data-zoom>`).join('')}</div>`:''}
+      ${e.thumbs.length?`<div class="thumbs">${e.thumbs.map(t=>`<img src="${esc(t[0])}" alt="${esc(t[1])}" data-zoom>`).join('')}</div>`:''}
     </div>
   </article>`).join('');
 
@@ -492,3 +500,6 @@ document.addEventListener('click',ev=>{
 lb.addEventListener('click',ev=>{if(ev.target===lb||ev.target.id==='lbClose')closeLb()});
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeLb()});
 </script>
+
+</body>
+</html>
