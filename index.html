@@ -1,9 +1,17 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>תלמוד תורה אהבת תורה, באר שבע</title>
 <meta name="description" content="תלמוד תורה לילדים אהבת תורה, בית הכנסת הכיפה, באר שבע, בשיתוף בית מוריה. זמני לימוד, מבצעים והצטרפות.">
 <meta property="og:title" content="תלמוד תורה אהבת תורה, באר שבע">
 <meta property="og:description" content="זמני לימוד, מבצעים והצטרפות. בית הכנסת הכיפה, בשיתוף בית מוריה.">
-<meta property="og:image" content="https://ahavat-torah-bs.github.io/ahavat-torah/lashon-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ahavat-torah-bs.github.io/ahavat-torah/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://ahavat-torah-bs.github.io/ahavat-torah/og.jpg">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,16 +199,19 @@ footer img{height:44px;width:auto}
   .row{grid-template-columns:1fr 1fr}
   .row .grade{grid-column:1/-1}
   .join ol{grid-template-columns:1fr}
-  .event .cover{aspect-ratio:16/10}
+  .event .cover{aspect-ratio:auto;max-height:460px;object-fit:contain;background:transparent}
   .event:nth-child(odd),.event:nth-child(even){transform:none}
   .nav a:not(.cta){display:none}
   .sticker{inset-inline-end:-6px}
   .decor{width:170px;top:-70px;inset-inline-end:-30px}
   .hero{padding-block:36px 130px}
+  .polaroid{margin-top:64px}
   .campaign{padding:22px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
+</head>
+<body>
 
 <svg class="defs" aria-hidden="true" focusable="false">
   <filter id="wob" x="-5%" y="-5%" width="110%" height="110%">
@@ -219,8 +230,8 @@ footer img{height:44px;width:auto}
       <a class="cta" href="#join">איך מצטרפים</a>
     </nav>
     <a class="brand" href="#top" aria-label="תלמוד תורה אהבת תורה בשיתוף בית מוריה, לראש הדף">
-      <span class="chip"><img src="logo-ahavat.jpg" alt="לוגו תלמוד תורה אהבת תורה"></span>
-      <span class="chip"><img src="logo-moriah.jpg" alt="לוגו בית מוריה"></span>
+      <span class="chip"><img src="./logo-ahavat.jpg" alt="לוגו תלמוד תורה אהבת תורה"></span>
+      <span class="chip"><img src="./logo-moriah.jpg" alt="לוגו בית מוריה"></span>
     </a>
   </div>
 </header>
@@ -270,7 +281,7 @@ footer img{height:44px;width:auto}
           <path d="M120 150l6 13 14 2-10 10 3 14-13-7-13 7 3-14-10-10 14-2Z" fill="#f1b73f" stroke-width="2.5"/>
         </g></svg>
         <span class="tape" aria-hidden="true"></span>
-        <img src="p1.jpg" alt="מסיבת חנוכה וסיום מבצע באולם בית הכנסת" data-zoom>
+        <img src="./p1.jpg" alt="מסיבת חנוכה וסיום מבצע באולם בית הכנסת" data-zoom>
         <figcaption>מסיבת חנוכה וסיום מבצע, כ״ה בכסלו תשפ״ו</figcaption>
       </figure>
     </div>
@@ -289,7 +300,7 @@ footer img{height:44px;width:auto}
     <div class="rows" id="rows" role="tabpanel" aria-live="polite"></div>
     <div class="meta">
       <span id="schedNote"></span>
-      <button class="link" type="button" data-zoomsrc="schedule2.jpg" data-zoomalt="מערכת השעות">לצפייה במערכת המעוצבת</button>
+      <button class="link" type="button" data-zoomsrc="./schedule2.jpg" data-zoomalt="מערכת השעות">לצפייה במערכת המעוצבת</button>
     </div>
   </div></section>
 
@@ -303,7 +314,7 @@ footer img{height:44px;width:auto}
           <svg viewBox="0 0 100 100" fill="#f1b73f" stroke="#2a3342" stroke-width="2.5" stroke-linejoin="round" filter="url(#wob)"><path d="M50 4l10 14 17-5 2 17 17 4-8 15 12 13-15 9 1 17-17-2-7 16-12-12-14 10-5-17-17-2 3-17-13-11 14-10-3-17 17 1 6-16Z"/></svg>
           <span>פעיל<br>עכשיו</span>
         </div>
-        <img src="lashon-cover.jpg" alt="שער החוברת של מבצע חנוכה, שמירת הלשון" data-zoom>
+        <img src="./lashon-cover.jpg" alt="שער החוברת של מבצע חנוכה, שמירת הלשון" data-zoom>
       </div>
       <div>
         <h3>מבצע חנוכה תשפ״ז: שמירת הלשון</h3>
@@ -373,8 +384,8 @@ footer img{height:44px;width:auto}
   <div class="wrap">
     <div>תלמוד תורה לילדים ״אהבת תורה״, בית כנסת הכיפה בשיתוף בית מוריה.<br>בהנחיית הרב אהרון דרשביץ, רב קהילת בית כנסת הכיפה.<br>המסגרת פתוחה לכל ילדי באר שבע.</div>
     <div class="logos">
-      <span><img src="logo-ahavat.jpg" alt="אהבת תורה"></span>
-      <span><img src="logo-moriah.jpg" alt="בית מוריה"></span>
+      <span><img src="./logo-ahavat.jpg" alt="אהבת תורה"></span>
+      <span><img src="./logo-moriah.jpg" alt="בית מוריה"></span>
     </div>
   </div>
 </footer>
@@ -410,46 +421,46 @@ const SITE = {
       when:"ט״ז בחשוון תשפ״ז",
       title:"תפילה להצלחת עם ישראל, בחירות תשפ״ז",
       text:"ילדי התלמוד תורה התכנסו בבית הכנסת לתפילה משותפת להצלחת עם ישראל ביום הבחירות. בסיום חולק כיבוד לילדים.",
-      cover:"t1.jpg", coverAlt:"ילדי התלמוד תורה בתפילה בבית הכנסת",
-      thumbs:[["t2.jpg","תפילה בבית הכנסת"],["t3.jpg","תפילה בבית הכנסת"],["t4.jpg","תפילה בבית הכנסת"],["t5.jpg","תפילה בבית הכנסת"]]
+      cover:"./t1.jpg", coverAlt:"ילדי התלמוד תורה בתפילה בבית הכנסת",
+      thumbs:[["./t2.jpg","תפילה בבית הכנסת"],["./t3.jpg","תפילה בבית הכנסת"],["./t4.jpg","תפילה בבית הכנסת"],["./t5.jpg","תפילה בבית הכנסת"]]
     },
     {
       when:"ה׳ בתשרי תשפ״ז, יום רביעי",
       title:"מעמד התעוררות לקראת יום הכיפורים",
       text:"אבות ובנים בעזרת הגברים, אמהות ובנות בעזרת הנשים. הרב שמעון כהן והרב אהרון דרשביץ בדברי ברכה וחיזוק, שירת סליחות ופיוטים בליווי כלי נגינה, לימוד משותף ותהילים, ופרס אישי ופינוק מתוק לכל ילד.",
-      cover:"yomkippur.jpg", coverAlt:"מודעת מעמד ההתעוררות לקראת יום הכיפורים",
-      thumbs:[["yk1.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["yk2.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["yk3.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["yk4.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["yk5.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["yk6.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["yk7.jpg","מעמד ההתעוררות לקראת יום הכיפורים"]]
+      cover:"./yomkippur.jpg", coverAlt:"מודעת מעמד ההתעוררות לקראת יום הכיפורים",
+      thumbs:[["./yk1.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk2.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk3.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk4.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk5.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk6.jpg","מעמד ההתעוררות לקראת יום הכיפורים"],["./yk7.jpg","מעמד ההתעוררות לקראת יום הכיפורים"]]
     },
     {
       when:"י׳ באלול תשפ״ו",
       title:"חוזרים ללמוד באהבה",
       text:"פתיחת שנת הלימודים. ילדי באר שבע הוזמנו להצטרף ללימוד משנה, עם לימוד חווייתי, עידוד להתמדה וסביבה חינוכית מעצימה.",
-      cover:"lashon2.jpg", coverAlt:"מודעת פתיחת שנת הלימודים", thumbs:[]
+      cover:"./lashon2.jpg", coverAlt:"מודעת פתיחת שנת הלימודים", thumbs:[]
     },
     {
       when:"מכ׳ בתמוז עד ז׳ באב, תשפ״ו",
       title:"מסגרת לימוד בחופש הגדול",
       text:"תפילה במניין בשעה 8:30, שוקו ולחמנייה, ולימוד תורה חווייתי עם מדריכים, באווירה נעימה ומשמחת. שתי קבוצות: א׳–ב׳ וג׳–ו׳. הסיום בשעה 10:30.",
-      cover:"lashon1.jpg", coverAlt:"מודעת מסגרת הלימוד של החופש הגדול", thumbs:[]
+      cover:"./lashon1.jpg", coverAlt:"מודעת מסגרת הלימוד של החופש הגדול", thumbs:[]
     },
     {
       when:"כ״ט בשבט תשפ״ו",
       title:"סיום מסכת ברכות",
       text:"ערב חגיגי בנוכחות הורים ורבני הקהילה. דברי תורה מתוקים, פעילות אינטראקטיבית וחווייתית לילדים, חלוקת חולצות התלמוד תורה, תעודות הערכה והגרלה נושאת פרסים. עשרות ילדים סיימו את המסכת, ורבים נוספים התקדמו בחלקים משמעותיים ממנה.",
-      cover:"berachot.jpg", coverAlt:"הזמנה לסיום מסכת ברכות",
-      thumbs:[["p3.jpg","בנות בחולצות התלמוד תורה בפעילות חווייתית"],["p4.jpg","בנות בפעילות לפני האירוע"],["p5.jpg","בנים יושבים יחד בחצר"],["p6.jpg","בנים במעגל בחצר"],["p7.jpg","ילדים באולם בית הכנסת"],["b16.jpg","ערב סיום מסכת ברכות"],["b17.jpg","ערב סיום מסכת ברכות"],["b18.jpg","בנות בערב סיום מסכת ברכות"],["b19.jpg","בנות בערב סיום מסכת ברכות"],["b24.jpg","קולאז׳ מערב הסיום"],["teudat.jpg","תעודת הערכה לסיום מסכת ברכות"]]
+      cover:"./berachot.jpg", coverAlt:"הזמנה לסיום מסכת ברכות",
+      thumbs:[["./p3.jpg","בנות בחולצות התלמוד תורה בפעילות חווייתית"],["./p4.jpg","בנות בפעילות לפני האירוע"],["./p5.jpg","בנים יושבים יחד בחצר"],["./p6.jpg","בנים במעגל בחצר"],["./p7.jpg","ילדים באולם בית הכנסת"],["./b16.jpg","ערב סיום מסכת ברכות"],["./b17.jpg","ערב סיום מסכת ברכות"],["./b18.jpg","בנות בערב סיום מסכת ברכות"],["./b19.jpg","בנות בערב סיום מסכת ברכות"],["./b24.jpg","קולאז׳ מערב הסיום"],["./teudat.jpg","תעודת הערכה לסיום מסכת ברכות"]]
     },
     {
       when:"כ״ה בכסלו תשפ״ו",
       title:"מסיבת חנוכה וסיום מבצע",
       text:"ילדים והורים התכנסו יחד באולם בית הכנסת למסיבת חנוכה, לסיום המבצע.",
-      cover:"p2.jpg", coverAlt:"מסיבת חנוכה באולם בית הכנסת", thumbs:[["p1.jpg","מסיבת חנוכה באולם"],["d13.jpg","מסיבת חנוכה באולם"],["d14.jpg","מסיבת חנוכה באולם"]]
+      cover:"./p2.jpg", coverAlt:"מסיבת חנוכה באולם בית הכנסת", thumbs:[["./p1.jpg","מסיבת חנוכה באולם"],["./d13.jpg","מסיבת חנוכה באולם"],["./d14.jpg","מסיבת חנוכה באולם"]]
     }
     ,{
       when:"לאורך השנה",
       title:"רגעים מהשיעורים",
       text:"מהלימוד השוטף בספרייה ובבית המדרש.",
-      cover:"g22.jpg", coverAlt:"בנים לומדים בספרייה", thumbs:[["g23.jpg","קולאז׳ מהשיעורים"]]
+      cover:"./g22.jpg", coverAlt:"בנים לומדים בספרייה", thumbs:[["./g23.jpg","קולאז׳ מהשיעורים"]]
     }
   ]
 };
@@ -474,12 +485,12 @@ showGroup('boys');
 
 document.getElementById('events').innerHTML=SITE.events.map(e=>`
   <article class="event rough">
-    <div class="cwrap"><span class="tape" aria-hidden="true"></span><img class="cover" src="${esc(e.cover)}" alt="${esc(e.coverAlt)}" loading="lazy" data-zoom></div>
+    <div class="cwrap"><span class="tape" aria-hidden="true"></span><img class="cover" src="${esc(e.cover)}" alt="${esc(e.coverAlt)}" data-zoom></div>
     <div>
       <div class="when">${esc(e.when)}</div>
       <h3>${esc(e.title)}</h3>
       <p>${esc(e.text)}</p>
-      ${e.thumbs.length?`<div class="thumbs">${e.thumbs.map(t=>`<img src="${esc(t[0])}" alt="${esc(t[1])}" loading="lazy" data-zoom>`).join('')}</div>`:''}
+      ${e.thumbs.length?`<div class="thumbs">${e.thumbs.map(t=>`<img src="${esc(t[0])}" alt="${esc(t[1])}" data-zoom>`).join('')}</div>`:''}
     </div>
   </article>`).join('');
 
@@ -497,4 +508,5 @@ lb.addEventListener('click',ev=>{if(ev.target===lb||ev.target.id==='lbClose')clo
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeLb()});
 </script>
 
-</body></html>
+</body>
+</html>
